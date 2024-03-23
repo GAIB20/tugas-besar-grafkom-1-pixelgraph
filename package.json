@@ -1,0 +1,19 @@
+{
+  "name": "tugas-besar-grafkom-1-pixelgraph",
+  "version": "1.0.0",
+  "description": "tugas-besar-grafkom-1-pixelgraph created by GitHub Classroom",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc",
+    "test": "test"
+  },
+  "scripts": {
+    "start": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
+  }
+}

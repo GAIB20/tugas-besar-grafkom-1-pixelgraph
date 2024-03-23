@@ -4,10 +4,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebGL</title>
+    <link href="./output.css" rel="stylesheet">
+    <title>Pixel Graph WebGL</title>
 </head>
 
 <body>
+    <div class="bg-blue-500 w-screen">
+        <h1 class="text-2xl font-bold p-5">
+            PIXEL GRAPH WEBGL
+        </h1>
+    </div>
+    <div class="flex">
+        <!-- Sidebar -->
+        <div class="w-64 p-5 bg-blue-400 h-full fixed flex flex-col">
+            <!-- Model Shape -->
+            <div class="h-max mb-10">
+                <h1 class="font-bold text-xl mb-5">Model</h1>
+                <div class="flex flex-wrap gap-5">
+                    <img class="w-14 h-14 cursor-pointer rounded-xl bg-gray-300 p-2 hover:bg-gray-400 border-2 border-black"
+                        src="../assets/line.png" alt="Line Button" title="Line">
+                    <img class="w-14 h-14 cursor-pointer rounded-xl bg-gray-300 p-2 hover:bg-gray-400 border-2 border-black mr-3"
+                        src="../assets/square.svg" alt="Square Button" title="Square">
+                    <img class="w-14 h-14 cursor-pointer rounded-xl bg-gray-300 p-2 hover:bg-gray-400 border-2 border-black"
+                        src="../assets/rectangle.png" alt="Rectangle Button" title="Rectangle">
+                    <img class="w-14 h-14 cursor-pointer rounded-xl bg-gray-300 p-2 hover:bg-gray-400 border-2 border-black"
+                        src="../assets/polygon.png" alt="Polygon Button" title="Polygon">
+                </div>
+            </div>
+            <!-- Feature -->
+            <div class="flex flex-col gap-4">
+                <div class="flex">
+                    <!-- Edit -->
+                    <img class="w-10 h-10 cursor-pointer rounded-xl bg-gray-300 p-2 mr-5 hover:bg-gray-400 border-2 border-black"
+                        src="../assets/edit.png" alt="Edit Button" title="Edit">
+                    <!-- Save -->
+                    <img class="w-10 h-10 cursor-pointer rounded-xl bg-gray-300 p-2 mr-5 hover:bg-gray-400 border-2 border-black"
+                        src="../assets/save.png" alt="Save Button" title="Save">
+                </div>
+                <!-- Load Model -->
+                <div class="flex h-max w-max">
+                    <p
+                        class="cursor-pointer rounded-xl text-sm font-semibold text-center mr-3 bg-gray-300 p-2 h-10 w-14 hover:bg-gray-400 border-2 border-black">
+                        Load
+                    </p>
+                    <input class="w-32 my-auto pl-2 pb-1 rounded-sm drop-shadow-md" type="text" value="save.json"
+                        readonly>
+                </div>
+                <!-- Clear Canvas -->
+                <p
+                    class="cursor-pointer rounded-xl text-sm font-semibold text-center mr-3 bg-gray-300 p-2 h-10 w-14 hover:bg-gray-400 border-2 border-black">
+                    Clear
+                </p>
+            </div>
+            <!-- Transformation -->
+            <div>
+
+            </div>
+        </div>
+        <!-- Canvas -->
+        <div class="ml-64 p-5">
+
+        </div>
+    </div>
 </body>
 
 </html>
