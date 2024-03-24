@@ -9,56 +9,144 @@
 </head>
 
 <body>
-    <div class="bg-blue-500 w-screen">
-        <h1 class="text-2xl font-bold p-5">
+    <div class="bg-blue-900 w-screen">
+        <h1 class="text-2xl font-bold p-5 text-white">
             PIXEL GRAPH WEBGL
         </h1>
     </div>
     <div class="flex">
         <!-- Sidebar -->
-        <div class="w-64 p-5 bg-blue-400 h-full fixed flex flex-col">
+        <div class="w-80 p-5 bg-blue-400 h-full fixed flex flex-col overflow-y-scroll">
             <!-- Model Shape -->
-            <div class="h-max mb-10">
+            <div class="h-max mb-7">
                 <h1 class="font-bold text-xl mb-5">Model</h1>
-                <div class="flex flex-wrap gap-5">
-                    <img class="w-14 h-14 cursor-pointer rounded-xl bg-gray-300 p-2 hover:bg-gray-400 border-2 border-black"
-                        src="../assets/line.png" alt="Line Button" title="Line">
-                    <img class="w-14 h-14 cursor-pointer rounded-xl bg-gray-300 p-2 hover:bg-gray-400 border-2 border-black mr-3"
-                        src="../assets/square.svg" alt="Square Button" title="Square">
-                    <img class="w-14 h-14 cursor-pointer rounded-xl bg-gray-300 p-2 hover:bg-gray-400 border-2 border-black"
-                        src="../assets/rectangle.png" alt="Rectangle Button" title="Rectangle">
-                    <img class="w-14 h-14 cursor-pointer rounded-xl bg-gray-300 p-2 hover:bg-gray-400 border-2 border-black"
-                        src="../assets/polygon.png" alt="Polygon Button" title="Polygon">
+                <div class="flex flex-wrap gap-3">
+                    <!-- Line Model -->
+                    <button class="w-14 h-14 rounded-xl bg-gray-300 p-2 hover:bg-gray-400 border-2 border-black"
+                        title="Line">
+                        <img src="../assets/line.png" alt="Line Button">
+                    </button>
+                    <!-- Square Model -->
+                    <button class="w-14 h-14 rounded-xl bg-gray-300 p-2 hover:bg-gray-400 border-2 border-black"
+                        title="Square">
+                        <img src="../assets/square.svg" alt="Square Button">
+                    </button>
+                    <!-- Rectangle Model -->
+                    <button class="w-14 h-14 rounded-xl bg-gray-300 p-2 hover:bg-gray-400 border-2 border-black"
+                        title="Rectangle">
+                        <img src="../assets/rectangle.png" alt="Rectangle Button">
+                    </button>
+                    <!-- Polygon Model -->
+                    <button class="w-14 h-14 rounded-xl bg-gray-300 p-2 hover:bg-gray-400 border-2 border-black"
+                        title="Polygon">
+                        <img src="../assets/polygon.png" alt="Polygon Button">
+                    </button>
                 </div>
             </div>
             <!-- Feature -->
-            <div class="flex flex-col gap-4">
-                <div class="flex">
-                    <!-- Edit -->
-                    <img class="w-10 h-10 cursor-pointer rounded-xl bg-gray-300 p-2 mr-5 hover:bg-gray-400 border-2 border-black"
-                        src="../assets/edit.png" alt="Edit Button" title="Edit">
-                    <!-- Save -->
-                    <img class="w-10 h-10 cursor-pointer rounded-xl bg-gray-300 p-2 mr-5 hover:bg-gray-400 border-2 border-black"
-                        src="../assets/save.png" alt="Save Button" title="Save">
+            <div class="flex flex-col gap-3 mb-7">
+                <div class="flex gap-3">
+                    <!-- Color Button -->
+                    <button class="rounded-xl bg-gray-300 p-2 hover:bg-gray-400 border-2 border-black" title="Color">
+                        <div class="rounded-sm bg-black h-5 w-12 m-auto">
+                        </div>
+                    </button>
+                    <!-- Edit Button -->
+                    <button class="w-10 h-10 rounded-xl bg-gray-300 p-2 hover:bg-gray-400 border-2 border-black"
+                        title="Edit">
+                        <img src="../assets/edit.png" alt="Edit Button">
+                    </button>
+                    <!-- Save Button -->
+                    <button class="w-10 h-10 rounded-xl bg-gray-300 p-2 hover:bg-gray-400 border-2 border-black"
+                        title="Save">
+                        <img src="../assets/save.png" alt="Save Button">
+                    </button>
                 </div>
                 <!-- Load Model -->
                 <div class="flex h-max w-max">
-                    <p
-                        class="cursor-pointer rounded-xl text-sm font-semibold text-center mr-3 bg-gray-300 p-2 h-10 w-14 hover:bg-gray-400 border-2 border-black">
+                    <button
+                        class="rounded-xl text-sm font-semibold text-center mr-3 bg-gray-300 p-2 h-10 w-14 hover:bg-gray-400 border-2 border-black">
                         Load
-                    </p>
+                    </button>
+
                     <input class="w-32 my-auto pl-2 pb-1 rounded-sm drop-shadow-md" type="text" value="save.json"
                         readonly>
                 </div>
-                <!-- Clear Canvas -->
-                <p
-                    class="cursor-pointer rounded-xl text-sm font-semibold text-center mr-3 bg-gray-300 p-2 h-10 w-14 hover:bg-gray-400 border-2 border-black">
+                <!-- Clear Canvas Button -->
+                <button
+                    class="rounded-xl text-sm font-semibold text-center mr-3 bg-gray-300 p-2 h-10 w-14 hover:bg-gray-400 border-2 border-black">
                     Clear
-                </p>
+                </button>
             </div>
             <!-- Transformation -->
-            <div>
-
+            <div class="flex flex-col gap-3">
+                <h1 class="font-bold text-xl">Transformation</h1>
+                <!-- Translation -->
+                <div>
+                    <h2 class="font-semibold mb-3">Translation</h2>
+                    <div class="flex">
+                        <!-- Move Left Button -->
+                        <Button
+                            class="rounded-full bg-gray-300 h-12 w-12 hover:bg-gray-400 border-2 border-black my-auto"
+                            title="Move Left">
+                            <img class="m-auto" src="../assets/left.svg" alt="Move Left">
+                        </Button>
+                        <div class="flex flex-col gap-2">
+                            <!-- Move Up Button -->
+                            <Button class="rounded-full bg-gray-300 h-12 w-12 hover:bg-gray-400 border-2 border-black"
+                                title="Move Up">
+                                <img class="m-auto" src="../assets/up.svg" alt="Move Up">
+                            </Button>
+                            <!-- Move Down Button -->
+                            <Button class="rounded-full bg-gray-300 h-12 w-12 hover:bg-gray-400 border-2 border-black"
+                                title="Move Down">
+                                <img class="m-auto" src="../assets/down.svg" alt="Move Down">
+                            </Button>
+                        </div>
+                        <!-- Move Right Button -->
+                        <Button
+                            class="rounded-full bg-gray-300 h-12 w-12 hover:bg-gray-400 border-2 border-black my-auto"
+                            title="Move Right">
+                            <img class="m-auto" src="../assets/right.svg" alt="Move Right">
+                        </Button>
+                    </div>
+                </div>
+                <!-- Rotation -->
+                <div>
+                    <h2 class="font-semibold mb-3">Rotation</h2>
+                    <div class="flex gap-3">
+                        <!-- Rotate Left Button -->
+                        <Button
+                            class="rounded-full bg-gray-300 h-12 w-12 hover:bg-gray-400 border-2 border-black my-auto"
+                            title="Rotate Left">
+                            <img class="m-auto" src="../assets/rotate_left.svg" alt="Rotate Left">
+                        </Button>
+                        <!-- Rotate Right Button -->
+                        <Button
+                            class="rounded-full bg-gray-300 h-12 w-12 hover:bg-gray-400 border-2 border-black my-auto"
+                            title="Rotate Right">
+                            <img class="m-auto" src="../assets/rotate_right.svg" alt="Rotate Right">
+                        </Button>
+                    </div>
+                </div>
+                <!-- Dilatation -->
+                <div>
+                    <h2 class="font-semibold mb-3">Dilatation</h2>
+                    <div class="flex gap-3">
+                        <!-- Shrink Button -->
+                        <Button
+                            class="rounded-full bg-gray-300 h-12 w-12 hover:bg-gray-400 border-2 border-black my-auto"
+                            title="Shrink">
+                            <img class="m-auto" src="../assets/minus.svg" alt="Shrink">
+                        </Button>
+                        <!-- Grow Button -->
+                        <Button
+                            class="rounded-full bg-gray-300 h-12 w-12 hover:bg-gray-400 border-2 border-black my-auto"
+                            title="Grow">
+                            <img class="m-auto" src="../assets/plus.svg" alt="Grow">
+                        </Button>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- Canvas -->
