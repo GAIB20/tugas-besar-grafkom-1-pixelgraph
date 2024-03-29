@@ -97,4 +97,4 @@ const model = {
         vertices: polygonVertices,
         color: blueColor
     }
-}
+};

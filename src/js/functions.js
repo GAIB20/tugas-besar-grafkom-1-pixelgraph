@@ -91,56 +91,8 @@ function drawShape(vertices, color) {
     drawPoints(gl, vertices);
 }
 
+// Clear canvas
 function clearCanvas() {
-    // Clear canvas
     gl.clearColor(1.0, 1.0, 1.0, 1.0);
     gl.clear(gl.COLOR_BUFFER_BIT);
-}
-
-// Real function to draw a shape and handle mouse interactions
-function interactModel(vertices, color) {
-    let isDragging = false;
-    let selectedVertex = -1;
-    let offsetX = 0.0;
-    let offsetY = 0.0;
-
-    canvas.addEventListener('mousedown', function(event) {
-        let x = event.clientX;
-        let y = event.clientY;
-        let rect = event.target.getBoundingClientRect();
-        x = ((x - rect.left) - canvas.width / 2) / (canvas.width / 2);
-        y = (canvas.height / 2 - (y - rect.top)) / (canvas.height / 2);
-
-        for (let i = 0; i < vertices.length / 2; i++) {
-            let dx = vertices[i * 2] - x;
-            let dy = vertices[i * 2 + 1] - y;
-            if (dx * dx + dy * dy < 0.01) {
-                isDragging = true;
-                selectedVertex = i;
-                offsetX = x - vertices[i * 2];
-                offsetY = y - vertices[i * 2 + 1];
-                break;
-            }
-        }
-    });
-
-    canvas.addEventListener('mousemove', function(event) {
-        if (isDragging) {
-            let x = event.clientX;
-            let y = event.clientY;
-            let rect = event.target.getBoundingClientRect();
-            x = ((x - rect.left) - canvas.width / 2) / (canvas.width / 2);
-            y = (canvas.height / 2 - (y - rect.top)) / (canvas.height / 2);
-            vertices[selectedVertex * 2] = x - offsetX;
-            vertices[selectedVertex * 2 + 1] = y - offsetY;
-            drawShape(vertices, color);
-        }
-    });
-
-    canvas.addEventListener('mouseup', function(event) {
-        isDragging = false;
-        selectedVertex = -1;
-    });
-
-    drawShape(vertices, color);
 }
