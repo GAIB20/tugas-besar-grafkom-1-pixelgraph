@@ -24,9 +24,7 @@ function interactModel(vertices, color) {
     // Mouse when clicked on canvas
     canvas.addEventListener('mousedown', function(event) {
         // Get mouse position
-        let xy = mousePosition(event);
-        let x = xy[0];
-        let y = xy[1];
+        let [x,y] = mousePosition(event);
 
         // Check if the mouse is on a vertex
         for (let i = 0; i < vertices.length / 2; i++) {
@@ -50,9 +48,7 @@ function interactModel(vertices, color) {
     canvas.addEventListener('mousemove', function(event) {
         if (isDragging) {
             // Get mouse position
-            let xy = mousePosition(event);
-            let x = xy[0];
-            let y = xy[1];
+            let [x,y] = mousePosition(event);
 
             // Move the selected vertex
             vertices[selectedVertex * 2] = x - offsetX;
@@ -72,3 +68,4 @@ function interactModel(vertices, color) {
     // Mouse when left canvas
     drawShape(vertices, color);
 }
+
