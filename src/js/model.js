@@ -8,7 +8,13 @@ function createModel(model) {
     let vertices = model.vertices;
     let color = model.color;
     modelChoosed = model;
-    interactModel(vertices, color);
+    if (model.name === 'square') {
+        interactModel(vertices, color, typeInteraction.SQUARE);
+    } else if (model.name === 'rectangle') {
+        interactModel(vertices, color, typeInteraction.RECTANGLE);
+    } else {
+        interactModel(vertices, color, typeInteraction.FREE);
+    }
 }
 
 // save the model to file as JSON

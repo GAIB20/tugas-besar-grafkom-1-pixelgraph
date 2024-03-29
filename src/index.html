@@ -75,6 +75,13 @@
                         <img src="../assets/save.png" alt="Save Button">
                     </button>
                 </div>
+                <!-- toggle button interaction freely -->
+                <label class="switch flex items-center gap-2">
+                    <input type="checkbox" id="interaction-freely" class="rounded-xl text-sm font-semibold text-center mr-1 bg-gray-300 p-2 h-6 w-10 hover:bg-gray-400 border-2 border-black">
+                    <span class="slider round">
+                        Interaction Freely
+                    </span>
+                </label>
                 <!-- Load Model -->
                 <div class="flex h-max w-max">
                     <button
@@ -170,8 +177,8 @@
         <!-- width is fullscrren - sidebar width and height is fullscreen -->
         <canvas id="c" class="ml-64 p-5" width="800" height="800">
             <script src="./js/functions.js"></script>
-            <script src="./js/model.js"></script>
             <script src="./js/interaction.js"></script>
+            <script src="./js/model.js"></script>
         </canvas>
     </div>
 </body>
