@@ -3,6 +3,7 @@
 const sqrt_2 = Math.sqrt(2);
 const typeInteraction = {
     FREE: 'free',
+    LINE: 'line',
     SQUARE: 'square',
     RECTANGLE: 'rectangle',
 }
@@ -67,8 +68,10 @@ function interactModel(vertices, color, type=typeInteraction.FREE) {
             } else {
                 if (type === typeInteraction.SQUARE) {
                     interactSqure(vertices, dist_x, dist_y);
-                } else {
+                } else if (type === typeInteraction.RECTANGLE) {
                     interactRectangle(vertices, dist_x, dist_y);
+                } else {
+                    interactLine(vertices, selectedVertex, dist_x, dist_y);
                 }
             }
 
@@ -91,6 +94,11 @@ function interactFreely(vertices, selectedVertex, dist_x, dist_y){
     // Move the selected vertex
     vertices[selectedVertex * 2] = dist_x;
     vertices[selectedVertex * 2 + 1] = dist_y;
+}
+
+function interactLine(vertices, selectedVertex, dist_x, dist_y){
+    // Move the selected vertex
+    vertices[selectedVertex * 2] = dist_x;
 }
 
 function interactSqure(vertices, x, y) {

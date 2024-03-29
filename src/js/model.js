@@ -12,6 +12,8 @@ function createModel(model) {
         interactModel(vertices, color, typeInteraction.SQUARE);
     } else if (model.name === 'rectangle') {
         interactModel(vertices, color, typeInteraction.RECTANGLE);
+    } else if (model.name === 'line') {
+        interactModel(vertices, color, typeInteraction.LINE);
     } else {
         interactModel(vertices, color, typeInteraction.FREE);
     }
