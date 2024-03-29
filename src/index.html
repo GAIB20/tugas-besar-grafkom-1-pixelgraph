@@ -23,22 +23,30 @@
                 <div class="flex flex-wrap gap-3">
                     <!-- Line Model -->
                     <button class="w-14 h-14 rounded-xl bg-gray-300 p-2 hover:bg-gray-400 border-2 border-black"
-                        title="Line">
+                        title="Line"
+                        onclick="createModel(model.line)"    
+                    >
                         <img src="../assets/line.png" alt="Line Button">
                     </button>
                     <!-- Square Model -->
                     <button class="w-14 h-14 rounded-xl bg-gray-300 p-2 hover:bg-gray-400 border-2 border-black"
-                        title="Square">
+                        title="Square"
+                        onclick="createModel(model.square)"
+                    >
                         <img src="../assets/square.svg" alt="Square Button">
                     </button>
                     <!-- Rectangle Model -->
                     <button class="w-14 h-14 rounded-xl bg-gray-300 p-2 hover:bg-gray-400 border-2 border-black"
-                        title="Rectangle">
+                        title="Rectangle"
+                        onclick="createModel(model.rectangle)"
+                    >
                         <img src="../assets/rectangle.png" alt="Rectangle Button">
                     </button>
                     <!-- Polygon Model -->
                     <button class="w-14 h-14 rounded-xl bg-gray-300 p-2 hover:bg-gray-400 border-2 border-black"
-                        title="Polygon">
+                        title="Polygon"
+                        onclick="createModel(model.polygon)"
+                    >
                         <img src="../assets/polygon.png" alt="Polygon Button">
                     </button>
                 </div>
@@ -47,10 +55,13 @@
             <div class="flex flex-col gap-3 mb-7">
                 <div class="flex gap-3">
                     <!-- Color Button -->
-                    <button class="rounded-xl bg-gray-300 p-2 hover:bg-gray-400 border-2 border-black" title="Color">
+                    <!-- <button class="rounded-xl bg-gray-300 p-2 hover:bg-gray-400 border-2 border-black" title="Color">
                         <div class="rounded-sm bg-black h-5 w-12 m-auto">
                         </div>
-                    </button>
+                    </button> -->
+                    <div class="rounded-xl bg-gray-300 p-2 hover:bg-gray-400 border-2 border-black">
+                        <input type="color" id="shapeColor" value="#ff0000">
+                    </div>
                     <!-- Edit Button -->
                     <button class="w-10 h-10 rounded-xl bg-gray-300 p-2 hover:bg-gray-400 border-2 border-black"
                         title="Edit">
@@ -58,23 +69,29 @@
                     </button>
                     <!-- Save Button -->
                     <button class="w-10 h-10 rounded-xl bg-gray-300 p-2 hover:bg-gray-400 border-2 border-black"
-                        title="Save">
+                        title="Save"
+                        onclick="saveModel()"    
+                    >
                         <img src="../assets/save.png" alt="Save Button">
                     </button>
                 </div>
                 <!-- Load Model -->
                 <div class="flex h-max w-max">
                     <button
-                        class="rounded-xl text-sm font-semibold text-center mr-3 bg-gray-300 p-2 h-10 w-14 hover:bg-gray-400 border-2 border-black">
+                        class="rounded-xl text-sm font-semibold text-center mr-3 bg-gray-300 p-2 h-10 w-14 hover:bg-gray-400 border-2 border-black"
+                        onclick="loadModel()"
+                        >
                         Load
                     </button>
 
-                    <input class="w-32 my-auto pl-2 pb-1 rounded-sm drop-shadow-md" type="text" value="save.json"
+                    <input class="w-32 my-auto pl-2 pb-1 rounded-sm drop-shadow-md" id="model_name" type="text" value="no file loaded"
                         readonly>
                 </div>
                 <!-- Clear Canvas Button -->
                 <button
-                    class="rounded-xl text-sm font-semibold text-center mr-3 bg-gray-300 p-2 h-10 w-14 hover:bg-gray-400 border-2 border-black">
+                    class="rounded-xl text-sm font-semibold text-center mr-3 bg-gray-300 p-2 h-10 w-14 hover:bg-gray-400 border-2 border-black" 
+                    onclick="clearCanvas()"
+                    >
                     Clear
                 </button>
             </div>
@@ -150,9 +167,11 @@
             </div>
         </div>
         <!-- Canvas -->
-        <div class="ml-64 p-5">
-
-        </div>
+        <!-- width is fullscrren - sidebar width and height is fullscreen -->
+        <canvas id="c" class="ml-64 p-5" width="800" height="800">
+            <script src="./functions.js"></script>
+            <script src="./model.js"></script>
+        </canvas>
     </div>
 </body>
 
