@@ -32,7 +32,7 @@ function interactModel(vertices, color, type=typeInteraction.FREE) {
     let offsetY = 0.0;
 
     // Mouse when clicked on canvas
-    canvas.addEventListener('mousedown', function(event) {
+    function onMouseDown(event) {
         // Get mouse position
         let [x,y] = mousePosition(event);
 
@@ -52,10 +52,10 @@ function interactModel(vertices, color, type=typeInteraction.FREE) {
                 break;
             }
         }
-    });
+    };
 
     // Mouse when moved on canvas
-    canvas.addEventListener('mousemove', function(event) {
+    function onMouseMove(event) {
         let interactionFree = document.getElementById('interaction-freely').checked;
         if (isDragging) {
             // Get mouse position
@@ -78,15 +78,18 @@ function interactModel(vertices, color, type=typeInteraction.FREE) {
             // Draw the shape with updated vertices
             drawShape(vertices, color);
         }
-    });
+    };
 
     // Mouse when released on canvas
-    canvas.addEventListener('mouseup', function(event) {
+    function onMouseUp() {
         isDragging = false;
         selectedVertex = -1;
-    });
+    };
 
-    // Mouse when left canvas
+    // Add event listeners for mouse events on canvas
+    canvas.addEventListener('mousedown', onMouseDown);
+    canvas.addEventListener('mousemove', onMouseMove);
+    canvas.addEventListener('mouseup', onMouseUp);
     drawShape(vertices, color);
 }
 
