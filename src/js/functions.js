@@ -12,6 +12,17 @@ window.onload = function() {
     }
 }
 
+function createCanvas() {
+    canvas = document.createElement('canvas');
+    canvas.id = 'c';
+    canvas.width = 1000
+    canvas.height = 1000
+    canvas.className = 'ml-64 p-5'
+    document.body.appendChild(canvas);
+    canvas = document.querySelector('#c');
+    gl = canvas.getContext('webgl');
+}
+
 // Primitive function to draw a shape with dots at vertices
 
 // createShader function : create a shader and compile it
@@ -95,4 +106,6 @@ function drawShape(vertices, color) {
 function clearCanvas() {
     gl.clearColor(1.0, 1.0, 1.0, 1.0);
     gl.clear(gl.COLOR_BUFFER_BIT);
+    canvas.remove();
+    createCanvas();
 }
