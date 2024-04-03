@@ -3,24 +3,25 @@
 // Initialize canvas and WebGL context
 let canvas;
 let gl;
+let container;
+
 window.onload = function() {
     canvas = document.querySelector('#c');
     gl = canvas.getContext('webgl');
+    container = document.querySelector('#canvas-container');
+    container.appendChild(canvas);
     if (!gl) {
         alert('Your browser does not support WebGL');
         return;
     }
 }
 
-function createCanvas() {
-    canvas = document.createElement('canvas');
-    canvas.id = 'c';
-    canvas.width = 1000
-    canvas.height = 1000
-    canvas.className = 'ml-64 p-5'
-    document.body.appendChild(canvas);
-    canvas = document.querySelector('#c');
-    gl = canvas.getContext('webgl');
+function createContainer() {
+    container = document.createElement('div');
+    container.id = 'canvas-container';
+    container.className = 'ml-64 p-5'
+    document.body.appendChild(container);
+    container.appendChild(canvas);
 }
 
 // Primitive function to draw a shape with dots at vertices
@@ -106,6 +107,6 @@ function drawShape(vertices, color) {
 function clearCanvas() {
     gl.clearColor(1.0, 1.0, 1.0, 1.0);
     gl.clear(gl.COLOR_BUFFER_BIT);
-    canvas.remove();
-    createCanvas();
+    container.remove();
+    createContainer();
 }

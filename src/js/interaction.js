@@ -87,9 +87,9 @@ function interactModel(vertices, color, type=typeInteraction.FREE) {
     };
 
     // Add event listeners for mouse events on canvas
-    canvas.addEventListener('mousedown', onMouseDown);
-    canvas.addEventListener('mousemove', onMouseMove);
-    canvas.addEventListener('mouseup', onMouseUp);
+    container.addEventListener('mousedown', onMouseDown);
+    container.addEventListener('mousemove', onMouseMove);
+    container.addEventListener('mouseup', onMouseUp);
     drawShape(vertices, color);
 }
 
