@@ -61,7 +61,21 @@ List the primitive function that we create:
 
 ## How to Run
 
-
+1. Clone this repository
+2. Open the terminal and go to the project directory
+3. Run the following command:
+    ```bash
+    npm start
+    ```
+4. Go to the src directory on your terminal
+    ```bash
+    cd src
+    ```
+5. Open the index.html file on your browser and it could be dne with this command:
+    ```bash
+    .\index.html
+    ```
+6. Enjoy the application in your browser
 
 ## Project Status
 
