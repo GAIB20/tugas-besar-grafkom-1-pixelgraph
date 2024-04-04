@@ -16,37 +16,29 @@
     </div>
     <div class="flex w-full">
         <!-- Sidebar -->
-        <div class="w-80 p-5 bg-blue-400 h-full fixed flex flex-col overflow-y-scroll">
+        <div class="w-80 p-5 bg-blue-400 h-full flex flex-col absolute">
             <!-- Model Shape -->
-            <div class="h-max mb-7">
+            <div class="h-max mb-4">
                 <h1 class="font-bold text-xl mb-5">Model</h1>
                 <div class="flex flex-wrap gap-3">
                     <!-- Line Model -->
-                    <button class="w-14 h-14 rounded-xl bg-gray-300 p-2 hover:bg-gray-400 border-2 border-black"
-                        title="Line"
-                        onclick="createModel(model.line)"    
-                    >
+                    <button class="w-12 h-12 rounded-xl bg-gray-300 p-2 hover:bg-gray-400 border-2 border-black"
+                        title="Line" onclick="createModel(model.line)">
                         <img src="../assets/line.png" alt="Line Button">
                     </button>
                     <!-- Square Model -->
-                    <button class="w-14 h-14 rounded-xl bg-gray-300 p-2 hover:bg-gray-400 border-2 border-black"
-                        title="Square"
-                        onclick="createModel(model.square)"
-                    >
+                    <button class="w-12 h-12 rounded-xl bg-gray-300 p-2 hover:bg-gray-400 border-2 border-black"
+                        title="Square" onclick="createModel(model.square)">
                         <img src="../assets/square.svg" alt="Square Button">
                     </button>
                     <!-- Rectangle Model -->
-                    <button class="w-14 h-14 rounded-xl bg-gray-300 p-2 hover:bg-gray-400 border-2 border-black"
-                        title="Rectangle"
-                        onclick="createModel(model.rectangle)"
-                    >
+                    <button class="w-12 h-12 rounded-xl bg-gray-300 p-2 hover:bg-gray-400 border-2 border-black"
+                        title="Rectangle" onclick="createModel(model.rectangle)">
                         <img src="../assets/rectangle.png" alt="Rectangle Button">
                     </button>
                     <!-- Polygon Model -->
-                    <button class="w-14 h-14 rounded-xl bg-gray-300 p-2 hover:bg-gray-400 border-2 border-black"
-                        title="Polygon"
-                        onclick="createModel(model.polygon)"
-                    >
+                    <button class="w-12 h-12 rounded-xl bg-gray-300 p-2 hover:bg-gray-400 border-2 border-black"
+                        title="Polygon" onclick="createModel(model.polygon)">
                         <img src="../assets/polygon.png" alt="Polygon Button">
                     </button>
                 </div>
@@ -55,52 +47,55 @@
             <div class="flex flex-col gap-3 mb-7">
                 <div class="flex gap-3">
                     <!-- Color Button -->
-                    <!-- <button class="rounded-xl bg-gray-300 p-2 hover:bg-gray-400 border-2 border-black" title="Color">
-                        <div class="rounded-sm bg-black h-5 w-12 m-auto">
-                        </div>
+                    <button class="h-10 px-2 rounded-xl bg-gray-300 hover:bg-gray-400 border-2 border-black"
+                        title="Color">
+                        <!-- <div class="rounded-sm bg-black h-5 w-12 m-auto">
+                        </div> -->
+                        <input class="rounded-sm h-7 w-10 cursor-pointer bg-gray-300 hover:bg-gray-400" type="color"
+                            id="shapeColor" value="#ff0000">
+                    </button>
+                    <!-- <button class="h-10 rounded-xl bg-gray-300 p-2 hover:bg-gray-400 border-2 border-black"
+                        title="color">
+                        <input class="rounded-sm bg-black h-5 w-12 m-auto" type="color" id="shapeColor" value="#ff0000">
                     </button> -->
-                    <div class="rounded-xl bg-gray-300 p-2 hover:bg-gray-400 border-2 border-black">
-                        <input type="color" id="shapeColor" value="#ff0000">
-                    </div>
-                    <!-- Edit Button -->
+                    <!-- Edit Button
                     <button class="w-10 h-10 rounded-xl bg-gray-300 p-2 hover:bg-gray-400 border-2 border-black"
                         title="Edit">
                         <img src="../assets/edit.png" alt="Edit Button">
+                    </button> -->
+                    <!-- Clear Canvas Button -->
+                    <button
+                        class="rounded-xl text-sm font-semibold text-center bg-gray-300 p-2 h-10 w-14 hover:bg-gray-400 border-2 border-black"
+                        onclick="clearCanvas()">
+                        Clear
                     </button>
                     <!-- Save Button -->
                     <button class="w-10 h-10 rounded-xl bg-gray-300 p-2 hover:bg-gray-400 border-2 border-black"
-                        title="Save"
-                        onclick="saveModel()"    
-                    >
+                        title="Save" onclick="saveModel()">
                         <img src="../assets/save.png" alt="Save Button">
                     </button>
                 </div>
                 <!-- toggle button interaction freely -->
-                <label class="switch flex items-center gap-2">
-                    <input type="checkbox" id="interaction-freely" class="rounded-xl text-sm font-semibold text-center mr-1 bg-gray-300 p-2 h-6 w-10 hover:bg-gray-400 border-2 border-black">
+                <label class="switch flex items-center cursor-pointer">
+                    <input type="checkbox" id="interaction-freely"
+                        class="font-semibold mr-1 bg-gray-300 p-2 h-6 w-10 hover:bg-gray-400 cursor-pointer border-2 border-black">
                     <span class="slider round">
-                        Interaction Freely
+                        <p class="font-semibold">
+                            Interact Freely
+                        </p>
                     </span>
                 </label>
                 <!-- Load Model -->
                 <div class="flex h-max w-max">
                     <button
                         class="rounded-xl text-sm font-semibold text-center mr-3 bg-gray-300 p-2 h-10 w-14 hover:bg-gray-400 border-2 border-black"
-                        onclick="loadModel()"
-                        >
+                        onclick="loadModel()">
                         Load
                     </button>
 
-                    <input class="w-32 my-auto pl-2 pb-1 rounded-sm drop-shadow-md" id="model_name" type="text" value="no file loaded"
-                        readonly>
+                    <input class="w-32 my-auto pl-2 pb-1 rounded-sm drop-shadow-md" id="model_name" type="text"
+                        value="no file loaded" readonly>
                 </div>
-                <!-- Clear Canvas Button -->
-                <button
-                    class="rounded-xl text-sm font-semibold text-center mr-3 bg-gray-300 p-2 h-10 w-14 hover:bg-gray-400 border-2 border-black" 
-                    onclick="clearCanvas()"
-                    >
-                    Clear
-                </button>
             </div>
             <!-- Transformation -->
             <div class="flex flex-col gap-3">
@@ -173,14 +168,14 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Canvas container -->
         <div id="canvas-container" class="ml-80 p-5">
             <!-- The canvas will be added here -->
         </div>
         <!-- Canvas -->
-        <canvas id="c" class="p-5" width="600" height="600"></canvas>
-        
+        <canvas id="c" class="p-5 border border-black" width="650" height="650"></canvas>
+
         <script src="./js/functions.js"></script>
         <script src="./js/interaction.js"></script>
         <script src="./js/model.js"></script>
