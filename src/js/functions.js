@@ -19,7 +19,7 @@ window.onload = function() {
 function createContainer() {
     container = document.createElement('div');
     container.id = 'canvas-container';
-    container.className = 'ml-64 p-5'
+    container.className = 'ml-80 p-5'
     document.body.appendChild(container);
     container.appendChild(canvas);
 }
