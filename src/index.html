@@ -102,30 +102,38 @@
                 <h1 class="font-bold text-xl">Transformation</h1>
                 <!-- Translation -->
                 <div>
-                    <h2 class="font-semibold mb-3">Translation</h2>
+                    <h2 class="font-semibold mb-3">Translation (can use arrow keys)</h2>
                     <div class="flex">
                         <!-- Move Left Button -->
                         <Button
                             class="rounded-full bg-gray-300 h-12 w-12 hover:bg-gray-400 border-2 border-black my-auto"
-                            title="Move Left">
+                            title="Move Left"
+                            onclick="translateModel(Translation.LEFT)"
+                            >
                             <img class="m-auto" src="../assets/left.svg" alt="Move Left">
                         </Button>
                         <div class="flex flex-col gap-2">
                             <!-- Move Up Button -->
                             <Button class="rounded-full bg-gray-300 h-12 w-12 hover:bg-gray-400 border-2 border-black"
-                                title="Move Up">
+                                title="Move Up"
+                                onclick="translateModel(Translation.UP)"
+                                >
                                 <img class="m-auto" src="../assets/up.svg" alt="Move Up">
                             </Button>
                             <!-- Move Down Button -->
                             <Button class="rounded-full bg-gray-300 h-12 w-12 hover:bg-gray-400 border-2 border-black"
-                                title="Move Down">
+                                title="Move Down"
+                                onclick="translateModel(Translation.DOWN)"
+                                >
                                 <img class="m-auto" src="../assets/down.svg" alt="Move Down">
                             </Button>
                         </div>
                         <!-- Move Right Button -->
                         <Button
                             class="rounded-full bg-gray-300 h-12 w-12 hover:bg-gray-400 border-2 border-black my-auto"
-                            title="Move Right">
+                            title="Move Right"
+                            onclick="translateModel(Translation.RIGHT)"
+                            >
                             <img class="m-auto" src="../assets/right.svg" alt="Move Right">
                         </Button>
                     </div>
@@ -137,13 +145,17 @@
                         <!-- Rotate Left Button -->
                         <Button
                             class="rounded-full bg-gray-300 h-12 w-12 hover:bg-gray-400 border-2 border-black my-auto"
-                            title="Rotate Left">
+                            title="Rotate Left"
+                            onclick="rotateModel(Rotation.COUNTERCLOCKWISE)"
+                            >
                             <img class="m-auto" src="../assets/rotate_left.svg" alt="Rotate Left">
                         </Button>
                         <!-- Rotate Right Button -->
                         <Button
                             class="rounded-full bg-gray-300 h-12 w-12 hover:bg-gray-400 border-2 border-black my-auto"
-                            title="Rotate Right">
+                            title="Rotate Right"
+                            onclick="rotateModel(Rotation.CLOCKWISE)"
+                            >
                             <img class="m-auto" src="../assets/rotate_right.svg" alt="Rotate Right">
                         </Button>
                     </div>
@@ -155,13 +167,17 @@
                         <!-- Shrink Button -->
                         <Button
                             class="rounded-full bg-gray-300 h-12 w-12 hover:bg-gray-400 border-2 border-black my-auto"
-                            title="Shrink">
+                            title="Shrink"
+                            onclick="dilatateModel(Scale.DOWN)"
+                            >
                             <img class="m-auto" src="../assets/minus.svg" alt="Shrink">
                         </Button>
                         <!-- Grow Button -->
                         <Button
                             class="rounded-full bg-gray-300 h-12 w-12 hover:bg-gray-400 border-2 border-black my-auto"
-                            title="Grow">
+                            title="Grow"
+                            onclick="dilatateModel(Scale.UP)"
+                            >
                             <img class="m-auto" src="../assets/plus.svg" alt="Grow">
                         </Button>
                     </div>
@@ -197,8 +213,9 @@
         <canvas id="c" class="p-5 border border-black" width="650" height="650"></canvas>
 
         <script src="./js/functions.js"></script>
-        <script src="./js/interaction.js"></script>
         <script src="./js/model.js"></script>
+        <script src="./js/interaction.js"></script>
+        <script src="./js/transformation.js"></script>
         <script src="./js/polygon_function.js"></script>
     </div>
 </body>

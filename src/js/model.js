@@ -5,17 +5,15 @@ let modelChoosed;
 // Create a model with the given vertices and color
 function createModel(model) {
     clearCanvas();
-    let vertices = model.vertices;
-    let color = model.color;
     modelChoosed = model;
     if (model.name === 'square') {
-        interactModel(vertices, color, typeInteraction.SQUARE);
+        interactModel(typeInteraction.SQUARE);
     } else if (model.name === 'rectangle') {
-        interactModel(vertices, color, typeInteraction.RECTANGLE);
+        interactModel(typeInteraction.RECTANGLE);
     } else if (model.name === 'line') {
-        interactModel(vertices, color, typeInteraction.LINE);
+        interactModel(typeInteraction.LINE);
     } else {
-        interactModel(vertices, color, typeInteraction.FREE);
+        interactModel(typeInteraction.FREE);
     }
 }
 

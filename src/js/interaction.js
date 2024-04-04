@@ -25,7 +25,9 @@ function mousePosition(event) {
 }
 
 // Handle mouse interactions to move vertices of a model
-function interactModel(vertices, color, type=typeInteraction.FREE) {
+function interactModel(type=typeInteraction.FREE) {
+    let vertices = modelChoosed.vertices;
+    let color = modelChoosed.color;
     let isDragging = false;
     let selectedVertex = -1;
     let offsetX = 0.0;
@@ -101,7 +103,20 @@ function interactFreely(vertices, selectedVertex, dist_x, dist_y){
 
 function interactLine(vertices, selectedVertex, dist_x, dist_y){
     // Move the selected vertex
-    vertices[selectedVertex * 2] = dist_x;
+    let x1 = vertices[0];
+    let y1 = vertices[1];
+    let x2 = vertices[2];
+    let y2 = vertices[3];
+    // it is based on the slope of the line (not free movement)
+    // if the line is vertical
+    if (x1 - x2 < 0.000001) {
+        vertices[selectedVertex * 2 + 1] = dist_y;
+    } else {
+        let slope = (y2 - y1) / (x2 - x1);
+        let newY = slope * (dist_x - x1) + y1;
+        vertices[selectedVertex * 2] = dist_x;
+        vertices[selectedVertex * 2 + 1] = newY;
+    }
 }
 
 function interactSqure(vertices, x, y) {
