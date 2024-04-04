@@ -51,6 +51,10 @@ function loadModel() {
 }
 
 // Define vertices for a line, square, and polygon
+let dotVertices = [
+    0.0, 0.0
+];
+
 let lineVertices = [
     -0.4, 0.0,
     0.4, 0.0
@@ -83,8 +87,14 @@ const redColor = [1.0, 0.0, 0.0, 1.0];
 const greenColor = [0.0, 1.0, 0.0, 1.0];
 const blueColor = [0.0, 0.0, 1.0, 1.0];
 const purpleColor = [1.0, 0.0, 1.0, 1.0];
+const blackColor = [0.0, 0.0, 0.0, 1.0];
 
 const model = {
+    dot: {
+        name : 'dot',
+        vertices: dotVertices,
+        color: blackColor
+    },
     line: {
         name : 'line',
         vertices: lineVertices,
