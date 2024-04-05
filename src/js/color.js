@@ -16,9 +16,3 @@ function hexToRGB(hex) {
 
     return [r, g , b , 1];
 }
-
-const colorPicker = document.getElementById('shapeColor');
-colorPicker.addEventListener('change', function(event) {
-    const selectedColor = event.target.value;
-    changeColor(selectedColor)
-});
