@@ -40,7 +40,7 @@ function translateModel(translationType) {
     }
 
     // draw the shape
-    drawShape(vertices, color);
+    drawShapes();
 }
 
 // Function that handle key press event for translation
@@ -87,7 +87,7 @@ function rotateModel(angle) {
         vertices[i] = center[0] + (x - center[0]) * Math.cos(angle) - (y - center[1]) * Math.sin(angle);
         vertices[i + 1] = center[1] + (x - center[0]) * Math.sin(angle) + (y - center[1]) * Math.cos(angle);
     }
-    drawShape(vertices, color);
+    drawShapes();
 }
 
 // Dilatation
@@ -102,7 +102,7 @@ function dilatateModel(scale) {
         vertices[i] = center[0] + (x - center[0]) * scale;
         vertices[i + 1] = center[1] + (y - center[1]) * scale;
     }
-    drawShape(vertices, color);
+    drawShapes();
 }
 
 // Shear
@@ -119,5 +119,5 @@ function shearModel(shearAmount) {
         }
     }
 
-    drawShape(vertices, color);
+    drawShapes();
 }

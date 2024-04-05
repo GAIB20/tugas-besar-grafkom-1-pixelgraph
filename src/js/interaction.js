@@ -78,21 +78,21 @@ function interactModel(type=typeInteraction.FREE) {
             }
 
             // Draw the shape with updated vertices
-            drawShape(vertices, color);
+            drawShapes();
         }
     };
-
+    
     // Mouse when released on canvas
     function onMouseUp() {
         isDragging = false;
         selectedVertex = -1;
     };
-
+    
     // Add event listeners for mouse events on canvas
     container.addEventListener('mousedown', onMouseDown);
     container.addEventListener('mousemove', onMouseMove);
     container.addEventListener('mouseup', onMouseUp);
-    drawShape(vertices, color);
+    drawShapes();
 }
 
 function interactFreely(selectedVertex, dist_x, dist_y){

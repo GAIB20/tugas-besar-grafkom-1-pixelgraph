@@ -105,8 +105,8 @@ function drawShape(vertices, color) {
 
 // Clear canvas
 function clearCanvas() {
-    gl.clearColor(1.0, 1.0, 1.0, 1.0);
-    gl.clear(gl.COLOR_BUFFER_BIT);
-    container.remove();
-    createContainer();
+    // gl.clearColor(1.0, 1.0, 1.0, 1.0);
+    // gl.clear(gl.COLOR_BUFFER_BIT);
+    // container.remove();
+    // createContainer();
 }

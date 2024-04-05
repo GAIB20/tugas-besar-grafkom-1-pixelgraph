@@ -71,7 +71,7 @@ function addVertex() {
         }
 
         // Draw the updated shape
-        drawShape(vertices, color);
+        drawShapes();
     }
 }
 
@@ -152,5 +152,5 @@ function removeVertex() {
     }
 
     // Draw the updated shape
-    drawShape(vertices, color);
+    drawShapes();
 }
