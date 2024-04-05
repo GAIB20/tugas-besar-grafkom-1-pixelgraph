@@ -62,27 +62,38 @@ List the primitive function that we create:
 ## How to Run
 
 1. Clone this repository
+
 2. Open the terminal and go to the project directory
-3. Run the following command:
+
+3. Run the following command to install and start the tailwind css. Don't close the terminal after starting the tailwind until you finish using the application.
+
+    ```bash
+    npm install
+    ```
     ```bash
     npm start
     ```
-4. Go to the src directory on your terminal
+
+4. Open other terminal on the root project, then go to the src directory on your terminal
     ```bash
     cd src
     ```
-5. Open the index.html file on your browser and it could be dne with this command:
+
+5. Open the index.html file on your browser and it could be done with this command:
     ```bash
     .\index.html
     ```
+
 6. Enjoy the application in your browser
 
 ## Project Status
 
-Project is: _not complete_
+Project is: _complete_
 
 ## Room for Improvement
 
 Room for improvement:
 
-- 
+- Speed up algorithm
+- Make the application more user-friendly
+- Add more features
