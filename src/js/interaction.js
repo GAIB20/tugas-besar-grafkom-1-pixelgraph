@@ -66,14 +66,14 @@ function interactModel(type=typeInteraction.FREE) {
             let dist_y = y - offsetY;
 
             if (interactionFree || type === typeInteraction.FREE) {
-                interactFreely(vertices, selectedVertex, dist_x, dist_y);
+                interactFreely(selectedVertex, dist_x, dist_y);
             } else {
                 if (type === typeInteraction.SQUARE) {
-                    interactSqure(vertices, dist_x, dist_y);
+                    interactSqure(dist_x, dist_y);
                 } else if (type === typeInteraction.RECTANGLE) {
-                    interactRectangle(vertices, dist_x, dist_y);
+                    interactRectangle(dist_x, dist_y);
                 } else {
-                    interactLine(vertices, selectedVertex, dist_x, dist_y);
+                    interactLine(selectedVertex, dist_x, dist_y);
                 }
             }
 
@@ -95,66 +95,76 @@ function interactModel(type=typeInteraction.FREE) {
     drawShape(vertices, color);
 }
 
-function interactFreely(vertices, selectedVertex, dist_x, dist_y){
+function interactFreely(selectedVertex, dist_x, dist_y){
+    let vertices = modelChoosed.vertices;
     // Move the selected vertex
     vertices[selectedVertex * 2] = dist_x;
     vertices[selectedVertex * 2 + 1] = dist_y;
 }
 
-function interactLine(vertices, selectedVertex, dist_x, dist_y){
+function interactLine(selectedVertex, dist_x, dist_y){
+    let vertices = modelChoosed.vertices;
+    let [origin_x, origin_y] = getCenter(vertices);
     // Move the selected vertex
-    let x1 = vertices[0];
-    let y1 = vertices[1];
-    let x2 = vertices[2];
-    let y2 = vertices[3];
+    let x1 = origin_x - vertices[0];
+    let y1 = origin_y - vertices[1];
+    let x2 = origin_x - vertices[2];
+    let y2 = origin_y - vertices[3];
+
     // it is based on the slope of the line (not free movement)
-    // if the line is vertical
-    if (x1 - x2 < 0.000001) {
+    // Check if the line is vertical or horizontal
+    if (Math.abs(x1 - x2) < 0.000001) {
+        // Vertical line, only update y
         vertices[selectedVertex * 2 + 1] = dist_y;
+    } else if (Math.abs(y1 - y2) < 0.000001) {
+        // Horizontal line, only update x
+        vertices[selectedVertex * 2] = dist_x;
     } else {
+        // Calculate the slope of the line
         let slope = (y2 - y1) / (x2 - x1);
-        let newY = slope * (dist_x - x1) + y1;
+        // Calculate the new y coordinate based on the slope and the new x coordinate
+        let newY = slope * (dist_x - origin_x) + origin_y;
         vertices[selectedVertex * 2] = dist_x;
         vertices[selectedVertex * 2 + 1] = newY;
     }
 }
 
-function interactSqure(vertices, x, y) {
+function interactSqure(x, y) {
     // when one of the vertices is interacted (with mouse), the square length changes
     // change the length of the square by dragging the vertices
+    let vertices = modelChoosed.vertices;
+    let [origin_x, origin_y] = getCenter(vertices);
 
-    // note the origin of the square is at the center of the square
-    let origin_x = (vertices[0] + vertices[2] + vertices[4] + vertices[6]) / 4;
-    let origin_y = (vertices[1] + vertices[3] + vertices[5] + vertices[7]) / 4;
+    let dist_x = Math.abs(x - origin_x);
+    let dist_y = Math.abs(y - origin_y);
 
-    let dist_x = Math.abs((x) - origin_x);
-    let dist_y = Math.abs((y) - origin_y);
-
-    // euclidean distance
-    let dist = Math.sqrt(dist_x * dist_x + dist_y * dist_y)/sqrt_2;
-    vertices[0] = -dist
-    vertices[1] = -dist
-    vertices[2] = dist
-    vertices[3] = -dist
-    vertices[4] = dist
-    vertices[5] = dist
-    vertices[6] = -dist
-    vertices[7] = dist
+    let dist = Math.sqrt(dist_x * dist_x + dist_y * dist_y) / sqrt_2;
+    vertices[0] = origin_x - dist;
+    vertices[1] = origin_y - dist;
+    vertices[2] = origin_x + dist;
+    vertices[3] = origin_y - dist;
+    vertices[4] = origin_x + dist;
+    vertices[5] = origin_y + dist;
+    vertices[6] = origin_x - dist;
+    vertices[7] = origin_y + dist;
 }
 
-
-function interactRectangle(vertices, dist_x, dist_y){
+function interactRectangle(x, y) {
     // when one of the vertices is interacted (with mouse), the rectangle length changes
     // the length changes is horizontally or vertically
-    // Move the selected vertex and move the other vertices accordingly
 
-    // rectangle 
-    vertices[0] = -dist_x
-    vertices[1] = -dist_y
-    vertices[2] = dist_x
-    vertices[3] = -dist_y
-    vertices[4] = dist_x
-    vertices[5] = dist_y
-    vertices[6] = -dist_x
-    vertices[7] = dist_y
+    let vertices = modelChoosed.vertices;
+    let [origin_x, origin_y] = getCenter(vertices);
+
+    let dist_x = Math.abs(x - origin_x);
+    let dist_y = Math.abs(y - origin_y);
+
+    vertices[0] = origin_x - dist_x;
+    vertices[1] = origin_y - dist_y;
+    vertices[2] = origin_x + dist_x;
+    vertices[3] = origin_y - dist_y;
+    vertices[4] = origin_x + dist_x;
+    vertices[5] = origin_y + dist_y;
+    vertices[6] = origin_x - dist_x;
+    vertices[7] = origin_y + dist_y;
 }
