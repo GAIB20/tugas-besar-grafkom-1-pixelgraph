@@ -27,39 +27,39 @@ WebGL is a JavaScript API for rendering interactive 2D and 3D graphics within an
 - WebGL
 - HTML
 - CSS
+- JavaScript
 - Tailwind CSS
 
 ## Features
 
-List the ready features here:
+These are the app's features:
 1. Model
     - Line
     - Square
     - Rectangle
     - Polygon
-2. Funtion
+2. Function
     - Transformation
         - Translation
         - Rotation
-    - Moving the corner point of the object
-    - Changing the color of the corner point
+        - Dilatation
+        - Shear
+    - Adding vertex to a polygon model
+    - Moving the vertex of a model
+    - Changing the color of a model
     - Save the model
     - Load the model
-
-
-## Primitive Function
-
-List the primitive function that we create:
-
-1. 
-
-2. 
+    - Clear the model
 
 ## Screenshots
 
-![Example screenshot](./src/img/1.png)
+![Example screenshot](./doc/pictures/main.png)
 
 ## How to Run
+
+If you want to run the app, you only need to open ```index.html``` on folder ```src``` on your browser
+
+If you want to develop the app, you can follow these step:
 
 1. Clone this repository
 
