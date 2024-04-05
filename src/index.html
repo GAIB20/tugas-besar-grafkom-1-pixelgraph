@@ -46,23 +46,12 @@
             <!-- Feature -->
             <div class="flex flex-col gap-3 mb-7">
                 <div class="flex gap-3">
-                    <!-- Color Button -->
+                    <!-- Change Color Button -->
                     <button class="h-10 px-2 rounded-xl bg-gray-300 hover:bg-gray-400 border-2 border-black"
                         title="Color">
-                        <!-- <div class="rounded-sm bg-black h-5 w-12 m-auto">
-                        </div> -->
                         <input class="rounded-sm h-7 w-10 cursor-pointer bg-gray-300 hover:bg-gray-400" type="color"
                             id="shapeColor" value="#ff0000">
                     </button>
-                    <!-- <button class="h-10 rounded-xl bg-gray-300 p-2 hover:bg-gray-400 border-2 border-black"
-                        title="color">
-                        <input class="rounded-sm bg-black h-5 w-12 m-auto" type="color" id="shapeColor" value="#ff0000">
-                    </button> -->
-                    <!-- Edit Button
-                    <button class="w-10 h-10 rounded-xl bg-gray-300 p-2 hover:bg-gray-400 border-2 border-black"
-                        title="Edit">
-                        <img src="../assets/edit.png" alt="Edit Button">
-                    </button> -->
                     <!-- Clear Canvas Button -->
                     <button
                         class="rounded-xl text-sm font-semibold text-center bg-gray-300 p-2 h-10 w-14 hover:bg-gray-400 border-2 border-black"
@@ -107,33 +96,25 @@
                         <!-- Move Left Button -->
                         <Button
                             class="rounded-full bg-gray-300 h-12 w-12 hover:bg-gray-400 border-2 border-black my-auto"
-                            title="Move Left"
-                            onclick="translateModel(Translation.LEFT)"
-                            >
+                            title="Move Left" onclick="translateModel(Translation.LEFT)">
                             <img class="m-auto" src="../assets/left.svg" alt="Move Left">
                         </Button>
                         <div class="flex flex-col gap-2">
                             <!-- Move Up Button -->
                             <Button class="rounded-full bg-gray-300 h-12 w-12 hover:bg-gray-400 border-2 border-black"
-                                title="Move Up"
-                                onclick="translateModel(Translation.UP)"
-                                >
+                                title="Move Up" onclick="translateModel(Translation.UP)">
                                 <img class="m-auto" src="../assets/up.svg" alt="Move Up">
                             </Button>
                             <!-- Move Down Button -->
                             <Button class="rounded-full bg-gray-300 h-12 w-12 hover:bg-gray-400 border-2 border-black"
-                                title="Move Down"
-                                onclick="translateModel(Translation.DOWN)"
-                                >
+                                title="Move Down" onclick="translateModel(Translation.DOWN)">
                                 <img class="m-auto" src="../assets/down.svg" alt="Move Down">
                             </Button>
                         </div>
                         <!-- Move Right Button -->
                         <Button
                             class="rounded-full bg-gray-300 h-12 w-12 hover:bg-gray-400 border-2 border-black my-auto"
-                            title="Move Right"
-                            onclick="translateModel(Translation.RIGHT)"
-                            >
+                            title="Move Right" onclick="translateModel(Translation.RIGHT)">
                             <img class="m-auto" src="../assets/right.svg" alt="Move Right">
                         </Button>
                     </div>
@@ -145,17 +126,13 @@
                         <!-- Rotate Left Button -->
                         <Button
                             class="rounded-full bg-gray-300 h-12 w-12 hover:bg-gray-400 border-2 border-black my-auto"
-                            title="Rotate Left"
-                            onclick="rotateModel(Rotation.COUNTERCLOCKWISE)"
-                            >
+                            title="Rotate Left" onclick="rotateModel(Rotation.COUNTERCLOCKWISE)">
                             <img class="m-auto" src="../assets/rotate_left.svg" alt="Rotate Left">
                         </Button>
                         <!-- Rotate Right Button -->
                         <Button
                             class="rounded-full bg-gray-300 h-12 w-12 hover:bg-gray-400 border-2 border-black my-auto"
-                            title="Rotate Right"
-                            onclick="rotateModel(Rotation.CLOCKWISE)"
-                            >
+                            title="Rotate Right" onclick="rotateModel(Rotation.CLOCKWISE)">
                             <img class="m-auto" src="../assets/rotate_right.svg" alt="Rotate Right">
                         </Button>
                     </div>
@@ -167,17 +144,13 @@
                         <!-- Shrink Button -->
                         <Button
                             class="rounded-full bg-gray-300 h-12 w-12 hover:bg-gray-400 border-2 border-black my-auto"
-                            title="Shrink"
-                            onclick="dilatateModel(Scale.DOWN)"
-                            >
+                            title="Shrink" onclick="dilatateModel(Scale.DOWN)">
                             <img class="m-auto" src="../assets/minus.svg" alt="Shrink">
                         </Button>
                         <!-- Grow Button -->
                         <Button
                             class="rounded-full bg-gray-300 h-12 w-12 hover:bg-gray-400 border-2 border-black my-auto"
-                            title="Grow"
-                            onclick="dilatateModel(Scale.UP)"
-                            >
+                            title="Grow" onclick="dilatateModel(Scale.UP)">
                             <img class="m-auto" src="../assets/plus.svg" alt="Grow">
                         </Button>
                     </div>
@@ -189,15 +162,13 @@
                         <!-- Remove Vertex Button -->
                         <Button
                             class="rounded-full bg-gray-300 h-12 w-12 hover:bg-gray-400 border-2 border-black my-auto"
-                            title="Remove Vertex"
-                            onclick="removeVertex()">
+                            title="Remove Vertex" onclick="removeVertex()">
                             <img class="m-auto" src="../assets/minus.svg" alt="Remove Vertex">
                         </Button>
                         <!-- Add Vertex Button -->
                         <Button
                             class="rounded-full bg-gray-300 h-12 w-12 hover:bg-gray-400 border-2 border-black my-auto"
-                            title="Add Vertex"
-                            onclick="addVertex()">
+                            title="Add Vertex" onclick="addVertex()">
                             <img class="m-auto" src="../assets/plus.svg" alt="Add Vertex">
                         </Button>
                     </div>
@@ -217,6 +188,7 @@
         <script src="./js/interaction.js"></script>
         <script src="./js/transformation.js"></script>
         <script src="./js/polygon_function.js"></script>
+        <script src="./js/color.js"></script>
     </div>
 </body>
 
