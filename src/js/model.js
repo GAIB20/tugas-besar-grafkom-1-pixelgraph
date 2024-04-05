@@ -72,7 +72,7 @@ let modelChoosed;
 
 // Create a model with the given vertices and color
 function createModel(model) {
-    clearCanvas();
+    refreshListener();
     models.push(model);
     drawShapes();
     modelChoosed = model;
