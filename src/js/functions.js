@@ -81,13 +81,12 @@ function drawShape(vertices, color) {
         attribute vec2 a_position;
         void main() {
             gl_Position = vec4(a_position, 0.0, 1.0);
-            gl_PointSize = 5.0;
+            gl_PointSize = 6.0;
         }
     `;
     let fragmentShaderSource = `
         precision mediump float;
         uniform vec4 u_color;
-        uniform vec4 u_pointColor;
         void main() {
             gl_FragColor = u_color;
         }
@@ -101,6 +100,8 @@ function drawShape(vertices, color) {
     setupUniforms(gl, program, color);
     drawLineLoop(gl, vertices);
     drawPoints(gl, vertices);
+    // fill the shape with color
+    gl.drawArrays(gl.TRIANGLE_FAN, 0, vertices.length / 2);
 }
 
 // Clear canvas
@@ -109,6 +110,8 @@ function clearCanvas() {
     gl.clear(gl.COLOR_BUFFER_BIT);
     // pop all models
     models = [];
+    clearModelList();
+    document.getElementById('models_name').value = 'no file loaded';
 }
 
 // Recreate container for listener

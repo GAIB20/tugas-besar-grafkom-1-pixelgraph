@@ -78,10 +78,24 @@ let polygonCount = 0;
 
 // Create a model with the given vertices and color
 function createModel(model) {
+    // create new model and add it to the models array
+    let newModel = {
+        name: model.name,
+        vertices: [...model.vertices], 
+        color: [...model.color]
+    };
+
     refreshListener();
-    models.push(model);
+    models.push(newModel);
     drawShapes();
-    modelChoosed = model;
+    modelChoosed = newModel;
+    selectModel(newModel);
+
+    addModel(model);
+}
+
+// Select a model
+function selectModel(model){
     if (model.name === 'square') {
         interactModel(typeInteraction.SQUARE);
     } else if (model.name === 'rectangle') {
@@ -91,8 +105,6 @@ function createModel(model) {
     } else {
         interactModel(typeInteraction.FREE);
     }
-
-    addModel(model)
 }
 
 function addModel(model) {
@@ -125,7 +137,9 @@ function addModel(model) {
     newModel.checked = true;
     newModel.onclick = function() {
         selectedIdx = newModel.value;
-        console.log(selectedIdx);
+        // change selected model and modelChoosed
+        modelChoosed = models[selectedIdx];
+        selectModel(modelChoosed);
     };
 
     var modelLabel = document.createElement('label');
@@ -140,6 +154,17 @@ function addModel(model) {
     currIdx++;
 }
 
+function clearModelList() {
+    var modelList = document.getElementById('model-list');
+    while (modelList.firstChild) {
+        modelList.removeChild(modelList.firstChild);
+    }
+    lineCount = 0;
+    squareCount = 0;
+    rectangleCount = 0;
+    polygonCount = 0;
+}
+
 function drawShapes() {
     for (let i = 0; i < models.length; i++) {
         let vertices = models[i].vertices;
@@ -150,14 +175,21 @@ function drawShapes() {
 
 // save the model to file as JSON
 function saveModel() {
-    let data = JSON.stringify(modelChoosed);
-    let name = JSON.parse(data).name;
+    let data = JSON.stringify(models);
+    // let name = JSON.parse(data).name;
+    let name = "PixelGraph";
     // open file dialog to save the model file explorer using webkit
     // let root = document.location.href.split('/').slice(0, -1).join('/');
     let a = document.createElement('a');
     a.href = 'data:application/json,' + data;
     a.download = name + '.json';
     a.click();
+}
+
+function createModels(models) {
+    for (let i = 0; i < models.length; i++) {
+        createModel(models[i]);
+    }
 }
 
 // load the model from file
@@ -170,9 +202,10 @@ function loadModel() {
         let reader = new FileReader();
         reader.onload = function(event) {
             let data = event.target.result;
-            let model = JSON.parse(data);
-            document.getElementById('model_name').value = input.value.split('\\').pop().split('/').pop()
-            createModel(model);
+            let dataModels = JSON.parse(data);
+            document.getElementById('models_name').value = input.value.split('\\').pop().split('/').pop()
+            // clearCanvas();
+            createModels(dataModels);
         }
         reader.readAsText(file);
     }
