@@ -162,9 +162,10 @@ function removeVertex() {
     refreshListener();
 
     // Draw the updated shape
-    drawShapes();
+    selectModel(modelChoosed);
 }
 
+// Function to refresh the model name based on the number of vertices
 function refreshModelName(model) {
     let vertices = model.vertices;
     if (vertices.length == 2) {

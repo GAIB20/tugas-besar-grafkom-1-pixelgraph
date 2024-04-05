@@ -8,18 +8,22 @@ const Translation = {
     DOWN: ['y',-0.1]
 }
 
+// Set the rotation degree
 let rotationDegree = 10;
 
+// Enum for rotation type
 let Rotation = {
     CLOCKWISE: -Math.PI / 180 * rotationDegree,
     COUNTERCLOCKWISE: Math.PI / 180 * rotationDegree
 }
 
+// Enum for dilatation type
 let Scale = {
     UP: 1.1,
     DOWN: 0.9
 }
 
+// Enum for shear type
 let Shear = {
     LEFT: -0.1,
     RIGHT: 0.1
@@ -28,7 +32,6 @@ let Shear = {
 // Translation
 function translateModel(translationType) {
     let vertices = modelChoosed.vertices;
-    let color = modelChoosed.color;
     let start = 0;
 
     if (translationType[0] === 'y') {
@@ -60,6 +63,7 @@ function handleTranslation(event) {
     }
 }
 
+// Add event listener for key press event
 document.addEventListener('keydown', handleTranslation);
 
 // Rotation
@@ -76,9 +80,9 @@ function getCenter() {
     return [x, y];
 }
 
+// Rotate the model
 function rotateModel(angle) {
     let vertices = modelChoosed.vertices;
-    let color = modelChoosed.color;
     let center = getCenter(vertices);
 
     for (let i = 0; i < vertices.length; i += 2) {
@@ -93,7 +97,6 @@ function rotateModel(angle) {
 // Dilatation
 function dilatateModel(scale) {
     let vertices = modelChoosed.vertices;
-    let color = modelChoosed.color;
     let center = getCenter(vertices);
 
     for (let i = 0; i < vertices.length; i += 2) {
@@ -108,7 +111,6 @@ function dilatateModel(scale) {
 // Shear
 function shearModel(shearAmount) {
     let vertices = modelChoosed.vertices;
-    let color = modelChoosed.color;
     let center = getCenter(vertices);
 
     for (let i = 0; i < vertices.length; i += 2) {

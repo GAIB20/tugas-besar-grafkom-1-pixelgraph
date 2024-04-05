@@ -1,5 +1,3 @@
-// Functions to create, save, and load model (shape) in JSON format.
-
 // Define vertices for a line, square, and polygon
 let dotVertices = [
     0.0, 0.0
@@ -33,12 +31,14 @@ let polygonVertices = [
     -0.3, 0.15
 ];
 
+// Constants for colors
 const redColor = [1.0, 0.0, 0.0, 1.0];
 const greenColor = [0.0, 1.0, 0.0, 1.0];
 const blueColor = [0.0, 0.0, 1.0, 1.0];
 const purpleColor = [1.0, 0.0, 1.0, 1.0];
 const blackColor = [0.0, 0.0, 0.0, 1.0];
 
+// Constants for model names
 const modelName = {
     DOT: 'dot',
     LINE: 'line',
@@ -47,6 +47,7 @@ const modelName = {
     POLYGON: 'polygon'
 };
 
+// Constants for model types
 const model = {
     dot: {
         name : modelName.DOT,
@@ -101,6 +102,13 @@ function createModel(model) {
     addModel(model);
 }
 
+// Function to create models from the given models
+function createModels(models) {
+    for (let i = 0; i < models.length; i++) {
+        createModel(models[i]);
+    }
+}
+
 // Select a model
 function selectModel(model){
     if (model.name === 'square') {
@@ -114,6 +122,7 @@ function selectModel(model){
     }
 }
 
+// Function to add a model to the model list
 function addModel(model) {
     var modelList = document.getElementById('model-list');
     var newModel = document.createElement('input');
@@ -161,6 +170,7 @@ function addModel(model) {
     currIdx++;
 }
 
+// Function to clear the model list
 function clearModelList() {
     var modelList = document.getElementById('model-list');
     while (modelList.firstChild) {
@@ -172,31 +182,16 @@ function clearModelList() {
     polygonCount = 0;
 }
 
-function drawShapes() {
-    for (let i = 0; i < models.length; i++) {
-        let vertices = models[i].vertices;
-        let color = models[i].color;
-        drawShape(vertices, color);
-    }
-}
-
-// save the model to file as JSON
+// Function to save the model to a file
 function saveModel() {
     let data = JSON.stringify(models);
-    // let name = JSON.parse(data).name;
     let name = "PixelGraph";
-    // open file dialog to save the model file explorer using webkit
-    // let root = document.location.href.split('/').slice(0, -1).join('/');
+
+    // Open file dialog to save the model file explorer using webkit
     let a = document.createElement('a');
     a.href = 'data:application/json,' + data;
     a.download = name + '.json';
     a.click();
-}
-
-function createModels(models) {
-    for (let i = 0; i < models.length; i++) {
-        createModel(models[i]);
-    }
 }
 
 // load the model from file

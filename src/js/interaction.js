@@ -1,6 +1,7 @@
-// Funtions to interact with the model using mouse
-
+// Constant for square root of 2
 const sqrt_2 = Math.sqrt(2);
+
+// Object defining interaction types
 const typeInteraction = {
     FREE: 'free',
     LINE: 'line',
@@ -15,19 +16,18 @@ function mousePosition(event) {
     let y = event.clientY;
 
     // Get canvas position
-    let rect = event.target.getBoundingClientRect(); // getBoundingClientRect() method returns the size of an element and its position relative to the viewport.
+    let rect = event.target.getBoundingClientRect();
 
     // Convert mouse position to WebGL coordinates
-    x = ((x - rect.left) - canvas.width / 2) / (canvas.width / 2); 
+    x = ((x - rect.left) - canvas.width / 2) / (canvas.width / 2);
     y = (canvas.height / 2 - (y - rect.top)) / (canvas.height / 2);
 
     return [x, y];
 }
 
-// Handle mouse interactions to move vertices of a model
-function interactModel(type=typeInteraction.FREE) {
+// Function to handle mouse interactions to move vertices of a model
+function interactModel(type = typeInteraction.FREE) {
     let vertices = modelChoosed.vertices;
-    let color = modelChoosed.color;
     let isDragging = false;
     let selectedVertex = -1;
     let offsetX = 0.0;
@@ -36,7 +36,7 @@ function interactModel(type=typeInteraction.FREE) {
     // Mouse when clicked on canvas
     function onMouseDown(event) {
         // Get mouse position
-        let [x,y] = mousePosition(event);
+        let [x, y] = mousePosition(event);
 
         // Check if the mouse is on a vertex
         for (let i = 0; i < vertices.length / 2; i++) {
@@ -48,6 +48,7 @@ function interactModel(type=typeInteraction.FREE) {
             if (dx * dx + dy * dy < 0.01) {
                 isDragging = true;
                 selectedVertex = i;
+
                 // Calculate offset from mouse to vertex
                 offsetX = x - vertices[i * 2];
                 offsetY = y - vertices[i * 2 + 1];
@@ -61,7 +62,7 @@ function interactModel(type=typeInteraction.FREE) {
         let interactionFree = document.getElementById('interaction-freely').checked;
         if (isDragging) {
             // Get mouse position
-            let [x,y] = mousePosition(event);
+            let [x, y] = mousePosition(event);
             let dist_x = x - offsetX;
             let dist_y = y - offsetY;
 
@@ -69,7 +70,7 @@ function interactModel(type=typeInteraction.FREE) {
                 interactFreely(selectedVertex, dist_x, dist_y);
             } else {
                 if (type === typeInteraction.SQUARE) {
-                    interactSqure(dist_x, dist_y);
+                    interactSquare(dist_x, dist_y);
                 } else if (type === typeInteraction.RECTANGLE) {
                     interactRectangle(dist_x, dist_y);
                 } else {
@@ -81,13 +82,13 @@ function interactModel(type=typeInteraction.FREE) {
             drawShapes();
         }
     };
-    
+
     // Mouse when released on canvas
     function onMouseUp() {
         isDragging = false;
         selectedVertex = -1;
     };
-    
+
     // Add event listeners for mouse events on canvas
     container.addEventListener('mousedown', onMouseDown);
     container.addEventListener('mousemove', onMouseMove);
@@ -95,23 +96,26 @@ function interactModel(type=typeInteraction.FREE) {
     drawShapes();
 }
 
-function interactFreely(selectedVertex, dist_x, dist_y){
+// Function to interact freely with a vertex
+function interactFreely(selectedVertex, dist_x, dist_y) {
     let vertices = modelChoosed.vertices;
+
     // Move the selected vertex
     vertices[selectedVertex * 2] = dist_x;
     vertices[selectedVertex * 2 + 1] = dist_y;
 }
 
-function interactLine(selectedVertex, dist_x, dist_y){
+// Function to interact with a line
+function interactLine(selectedVertex, dist_x, dist_y) {
     let vertices = modelChoosed.vertices;
     let [origin_x, origin_y] = getCenter(vertices);
+
     // Move the selected vertex
     let x1 = origin_x - vertices[0];
     let y1 = origin_y - vertices[1];
     let x2 = origin_x - vertices[2];
     let y2 = origin_y - vertices[3];
 
-    // it is based on the slope of the line (not free movement)
     // Check if the line is vertical or horizontal
     if (Math.abs(x1 - x2) < 0.000001) {
         // Vertical line, only update y
@@ -122,6 +126,7 @@ function interactLine(selectedVertex, dist_x, dist_y){
     } else {
         // Calculate the slope of the line
         let slope = (y2 - y1) / (x2 - x1);
+
         // Calculate the new y coordinate based on the slope and the new x coordinate
         let newY = slope * (dist_x - origin_x) + origin_y;
         vertices[selectedVertex * 2] = dist_x;
@@ -129,9 +134,9 @@ function interactLine(selectedVertex, dist_x, dist_y){
     }
 }
 
-function interactSqure(x, y) {
-    // when one of the vertices is interacted (with mouse), the square length changes
-    // change the length of the square by dragging the vertices
+// Function to interact with a square
+function interactSquare(x, y) {
+    // Change the length of the square by dragging the vertices
     let vertices = modelChoosed.vertices;
     let [origin_x, origin_y] = getCenter(vertices);
 
@@ -149,10 +154,9 @@ function interactSqure(x, y) {
     vertices[7] = origin_y + dist;
 }
 
+// Function to interact with a rectangle
 function interactRectangle(x, y) {
-    // when one of the vertices is interacted (with mouse), the rectangle length changes
-    // the length changes is horizontally or vertically
-
+    // Change the length of the rectangle horizontally or vertically
     let vertices = modelChoosed.vertices;
     let [origin_x, origin_y] = getCenter(vertices);
 
