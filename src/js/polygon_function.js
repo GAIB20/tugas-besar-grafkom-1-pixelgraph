@@ -8,7 +8,6 @@ function addVertex() {
     } else {
         // Get vertices and color of the model
         let vertices = modelChoosed.vertices;
-        let color = modelChoosed.color;
 
         if (vertices.length == 0) {
             // Add the first vertex at the center of the canvas
@@ -70,8 +69,14 @@ function addVertex() {
             }
         }
 
-        // Draw the updated shape
-        drawShapes();
+        // Update the model name
+        refreshModelName(modelChoosed);
+
+        // Refresh the listener
+        refreshListener();
+
+        // Select the updated model
+        selectModel(modelChoosed)
     }
 }
 
@@ -79,7 +84,6 @@ function addVertex() {
 function removeVertex() {
     // Get vertices and color of the model
     let vertices = modelChoosed.vertices;
-    let color = modelChoosed.color;
 
     // Ensure there are enough vertices to remove
     if (vertices.length == 0) {
@@ -151,6 +155,27 @@ function removeVertex() {
         }
     }
 
+    // Update the model name
+    refreshModelName(modelChoosed);
+
+    // Refresh the listener
+    refreshListener();
+
     // Draw the updated shape
     drawShapes();
+}
+
+function refreshModelName(model) {
+    let vertices = model.vertices;
+    if (vertices.length == 2) {
+        model.name = modelName.DOT;
+    } else if (vertices.length == 4) {
+        model.name = modelName.LINE;
+    } else if (vertices.length == 6) {
+        model.name = modelName.POLYGON;
+    } else if (vertices.length == 8) {
+        model.name = modelName.RECTANGLE;
+    } else {
+        model.name = modelName.POLYGON;
+    }	
 }

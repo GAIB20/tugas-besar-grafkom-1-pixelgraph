@@ -39,29 +39,37 @@ const blueColor = [0.0, 0.0, 1.0, 1.0];
 const purpleColor = [1.0, 0.0, 1.0, 1.0];
 const blackColor = [0.0, 0.0, 0.0, 1.0];
 
+const modelName = {
+    DOT: 'dot',
+    LINE: 'line',
+    SQUARE: 'square',
+    RECTANGLE: 'rectangle',
+    POLYGON: 'polygon'
+};
+
 const model = {
     dot: {
-        name : 'dot',
+        name : modelName.DOT,
         vertices: dotVertices,
         color: blackColor
     },
     line: {
-        name : 'line',
+        name : modelName.LINE,
         vertices: lineVertices,
         color: redColor
     },
     square: {
-        name : 'square',
+        name : modelName.SQUARE,
         vertices: squareVertices,
         color: greenColor
     },
     rectangle: {
-        name : 'rectangle',
+        name : modelName.RECTANGLE,
         vertices: rectangleVertices,
         color: purpleColor
     },
     polygon: {
-        name : 'polygon',
+        name : modelName.POLYGON,
         vertices: polygonVertices,
         color: blueColor
     }
@@ -87,7 +95,6 @@ function createModel(model) {
 
     refreshListener();
     models.push(newModel);
-    drawShapes();
     modelChoosed = newModel;
     selectModel(newModel);
 
