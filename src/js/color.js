@@ -1,9 +1,6 @@
 function changeColor(colorValue) {
     modelChoosed.color = hexToRGB(colorValue);
-    let vertices = modelChoosed.vertices;
-    let color = modelChoosed.color
-
-    createModel(modelChoosed);
+    drawShapes();
 }
 
 function hexToRGB(hex) {
