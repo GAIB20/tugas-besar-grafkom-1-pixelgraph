@@ -111,11 +111,11 @@ function createModels(models) {
 
 // Select a model
 function selectModel(model){
-    if (model.name === 'square') {
+    if (model.name == modelName.SQUARE) {
         interactModel(typeInteraction.SQUARE);
-    } else if (model.name === 'rectangle') {
+    } else if (model.name == modelName.RECTANGLE) {
         interactModel(typeInteraction.RECTANGLE);
-    } else if (model.name === 'line') {
+    } else if (model.name == modelName.LINE) {
         interactModel(typeInteraction.LINE);
     } else {
         interactModel(typeInteraction.FREE);
