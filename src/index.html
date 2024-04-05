@@ -119,58 +119,80 @@
                         </Button>
                     </div>
                 </div>
-                <!-- Rotation -->
-                <div>
-                    <h2 class="font-semibold mb-3">Rotation</h2>
-                    <div class="flex gap-3">
-                        <!-- Rotate Left Button -->
-                        <Button
-                            class="rounded-full bg-gray-300 h-12 w-12 hover:bg-gray-400 border-2 border-black my-auto"
-                            title="Rotate Left" onclick="rotateModel(Rotation.COUNTERCLOCKWISE)">
-                            <img class="m-auto" src="../assets/rotate_left.svg" alt="Rotate Left">
-                        </Button>
-                        <!-- Rotate Right Button -->
-                        <Button
-                            class="rounded-full bg-gray-300 h-12 w-12 hover:bg-gray-400 border-2 border-black my-auto"
-                            title="Rotate Right" onclick="rotateModel(Rotation.CLOCKWISE)">
-                            <img class="m-auto" src="../assets/rotate_right.svg" alt="Rotate Right">
-                        </Button>
+                <div class="flex gap-7">
+                    <!-- Rotation -->
+                    <div>
+                        <h2 class="font-semibold mb-3">Rotation</h2>
+                        <div class="flex gap-3">
+                            <!-- Rotate Left Button -->
+                            <Button
+                                class="rounded-full bg-gray-300 h-12 w-12 hover:bg-gray-400 border-2 border-black my-auto"
+                                title="Rotate Left" onclick="rotateModel(Rotation.COUNTERCLOCKWISE)">
+                                <img class="m-auto" src="../assets/rotate_left.svg" alt="Rotate Left">
+                            </Button>
+                            <!-- Rotate Right Button -->
+                            <Button
+                                class="rounded-full bg-gray-300 h-12 w-12 hover:bg-gray-400 border-2 border-black my-auto"
+                                title="Rotate Right" onclick="rotateModel(Rotation.CLOCKWISE)">
+                                <img class="m-auto" src="../assets/rotate_right.svg" alt="Rotate Right">
+                            </Button>
+                        </div>
+                    </div>
+                    <!-- Dilatation -->
+                    <div>
+                        <h2 class="font-semibold mb-3">Dilatation</h2>
+                        <div class="flex gap-3">
+                            <!-- Shrink Button -->
+                            <Button
+                                class="rounded-full bg-gray-300 h-12 w-12 hover:bg-gray-400 border-2 border-black my-auto"
+                                title="Shrink" onclick="dilatateModel(Scale.DOWN)">
+                                <img class="m-auto" src="../assets/minus.svg" alt="Shrink">
+                            </Button>
+                            <!-- Grow Button -->
+                            <Button
+                                class="rounded-full bg-gray-300 h-12 w-12 hover:bg-gray-400 border-2 border-black my-auto"
+                                title="Grow" onclick="dilatateModel(Scale.UP)">
+                                <img class="m-auto" src="../assets/plus.svg" alt="Grow">
+                            </Button>
+                        </div>
                     </div>
                 </div>
-                <!-- Dilatation -->
-                <div>
-                    <h2 class="font-semibold mb-3">Dilatation</h2>
-                    <div class="flex gap-3">
-                        <!-- Shrink Button -->
-                        <Button
-                            class="rounded-full bg-gray-300 h-12 w-12 hover:bg-gray-400 border-2 border-black my-auto"
-                            title="Shrink" onclick="dilatateModel(Scale.DOWN)">
-                            <img class="m-auto" src="../assets/minus.svg" alt="Shrink">
-                        </Button>
-                        <!-- Grow Button -->
-                        <Button
-                            class="rounded-full bg-gray-300 h-12 w-12 hover:bg-gray-400 border-2 border-black my-auto"
-                            title="Grow" onclick="dilatateModel(Scale.UP)">
-                            <img class="m-auto" src="../assets/plus.svg" alt="Grow">
-                        </Button>
+                <div class="flex gap-7">
+                    <!-- Vertex -->
+                    <div>
+                        <h2 class="font-semibold mb-3">Vertex</h2>
+                        <div class="flex gap-3">
+                            <!-- Remove Vertex Button -->
+                            <Button
+                                class="rounded-full bg-gray-300 h-12 w-12 hover:bg-gray-400 border-2 border-black my-auto"
+                                title="Remove Vertex" onclick="removeVertex()">
+                                <img class="m-auto" src="../assets/minus.svg" alt="Remove Vertex">
+                            </Button>
+                            <!-- Add Vertex Button -->
+                            <Button
+                                class="rounded-full bg-gray-300 h-12 w-12 hover:bg-gray-400 border-2 border-black my-auto"
+                                title="Add Vertex" onclick="addVertex()">
+                                <img class="m-auto" src="../assets/plus.svg" alt="Add Vertex">
+                            </Button>
+                        </div>
                     </div>
-                </div>
-                <!-- Vertex -->
-                <div>
-                    <h2 class="font-semibold mb-3">Vertex</h2>
-                    <div class="flex gap-3">
-                        <!-- Remove Vertex Button -->
-                        <Button
-                            class="rounded-full bg-gray-300 h-12 w-12 hover:bg-gray-400 border-2 border-black my-auto"
-                            title="Remove Vertex" onclick="removeVertex()">
-                            <img class="m-auto" src="../assets/minus.svg" alt="Remove Vertex">
-                        </Button>
-                        <!-- Add Vertex Button -->
-                        <Button
-                            class="rounded-full bg-gray-300 h-12 w-12 hover:bg-gray-400 border-2 border-black my-auto"
-                            title="Add Vertex" onclick="addVertex()">
-                            <img class="m-auto" src="../assets/plus.svg" alt="Add Vertex">
-                        </Button>
+                    <!-- Shear -->
+                    <div>
+                        <h2 class="font-semibold mb-3">Shear</h2>
+                        <div class="flex gap-3">
+                            <!-- Shear Left Button -->
+                            <Button
+                                class="rounded-full bg-gray-300 h-12 w-12 hover:bg-gray-400 border-2 border-black my-auto"
+                                title="Shear Left" onclick="shearModel(Shear.LEFT)">
+                                <img class="m-auto h-8 w-7" src="../assets/shear_left.png" alt="Remove Vertex">
+                            </Button>
+                            <!-- Shear Right Button -->
+                            <Button
+                                class="rounded-full bg-gray-300 h-12 w-12 hover:bg-gray-400 border-2 border-black my-auto"
+                                title="Shear Right" onclick="shearModel(Shear.RIGHT)">
+                                <img class="m-auto h-8 w-7" src="../assets/shear_right.png" alt="Add Vertex">
+                            </Button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -181,7 +203,7 @@
             <!-- The canvas will be added here -->
         </div>
         <!-- Canvas -->
-        <canvas id="c" class="p-5 border border-black" width="650" height="650"></canvas>
+        <canvas id="c" class="p-5 border border-black" width="600" height="600"></canvas>
 
         <script src="./js/functions.js"></script>
         <script src="./js/model.js"></script>

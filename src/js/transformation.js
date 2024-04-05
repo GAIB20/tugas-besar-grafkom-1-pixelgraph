@@ -20,6 +20,11 @@ let Scale = {
     DOWN: 0.9
 }
 
+let Shear = {
+    LEFT: -0.1,
+    RIGHT: 0.1
+}
+
 // Translation
 function translateModel(translationType) {
     let vertices = modelChoosed.vertices;
@@ -101,3 +106,18 @@ function dilatateModel(scale) {
 }
 
 // Shear
+function shearModel(shearAmount) {
+    let vertices = modelChoosed.vertices;
+    let color = modelChoosed.color;
+    let center = getCenter(vertices);
+
+    for (let i = 0; i < vertices.length; i += 2) {
+        let x = vertices[i];
+        let y = vertices[i + 1];
+        if (y > center[1]) {
+            vertices[i] = x + shearAmount * (y - center[1]);
+        }
+    }
+
+    drawShape(vertices, color);
+}
