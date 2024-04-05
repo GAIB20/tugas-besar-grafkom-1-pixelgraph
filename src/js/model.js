@@ -176,6 +176,9 @@ function clearModelList() {
     while (modelList.firstChild) {
         modelList.removeChild(modelList.firstChild);
     }
+    currIdx = 0;
+    selectedIdx = 0;
+    modelChoosed;
     lineCount = 0;
     squareCount = 0;
     rectangleCount = 0;
