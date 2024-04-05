@@ -1,17 +1,18 @@
-# tugas-besar-grafkom-1-pixelgraph
-tugas-besar-grafkom-1-pixelgraph created by GitHub Classroom
+# Tugas Besar Grafkom 1 PixelGraph
 
 - Nigel Sahl (13521043)
 - Muhammad Equilibrie Fajria (13521047)
 - Ghazi Akmal Fauzan (13521058)
 
+![Masterpiece screenshot](./doc/pictures/masterpiece.png)
+
 ## Table of Contents
 
+- [Tugas Besar Grafkom 1 PixelGraph](#tugas-besar-grafkom-1-pixelgraph)
   - [Table of Contents](#table-of-contents)
   - [General Information](#general-information)
   - [Technologies Used](#technologies-used)
   - [Features](#features)
-  - [Primitive Function](#primitive-function)
   - [Screenshots](#screenshots)
   - [How to Run](#how-to-run)
   - [Project Status](#project-status)
@@ -51,9 +52,32 @@ These are the app's features:
     - Load the model
     - Clear the model
 
+| Feature           | Description                                                                                     |
+|:------------------|:------------------------------------------------------------------------------------------------|
+| Garis             | Menyediakan fungsi untuk menggambar garis dan mengubah panjangnya.                               |
+| Persegi           | Menyediakan fungsi untuk menggambar persegi dan mengubah panjang sisinya.                         |
+| Persegi Panjang   | Menyediakan fungsi untuk menggambar persegi panjang dan mengubah panjang dan lebar sisi-sisinya. |
+| Polygon           | Menyediakan fungsi untuk menggambar polygon, mengubah panjang sisi, serta menambah dan mengurangi jumlah titik sudut. |
+| Transformasi      | Menyediakan fungsi untuk melakukan translasi, dilatasi, rotasi, dan shear pada model.             |
+| Free Interaction  | Memungkinkan pengguna untuk menggerakkan salah satu titik sudut dengan drag and drop.             |
+| Warna             | Memungkinkan pengguna untuk mengubah warna dari model.                                           |
+| Save              | Memungkinkan pengguna untuk menyimpan model ke sebuah file .json.                                 |
+| Load              | Memungkinkan pengguna untuk memuat (load) model dari file .json.                                  |
+| Clear             | Memungkinkan pengguna untuk membersihkan canvas dan daftar model.                                 |
+| Convex Hull       | Meskipun urutan penambahan titik berubah, gambar akhir polygon tetap sama yang merupakan convex hull dari titik-titiknya. |
+| Lock              | Memungkinkan pengguna mengunci kesebangunan saat dilakukan dilatasi.                               |
+
+
 ## Screenshots
 
-![Example screenshot](./doc/pictures/main.png)
+1. Main Page
+![Web Page screenshot](./doc/pictures/main.png)
+
+2. Models
+![Models screenshot](./doc/pictures/models.png)
+
+3. Abstract
+![Abstract screenshot](./doc/pictures/abstract.png)
 
 ## How to Run
 
