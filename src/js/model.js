@@ -68,7 +68,13 @@ const model = {
 };
 
 let models = [];
+let currIdx = 0;
+let selectedIdx = 0;
 let modelChoosed;
+let lineCount = 0;
+let squareCount = 0;
+let rectangleCount = 0;
+let polygonCount = 0;
 
 // Create a model with the given vertices and color
 function createModel(model) {
@@ -85,6 +91,53 @@ function createModel(model) {
     } else {
         interactModel(typeInteraction.FREE);
     }
+
+    addModel(model)
+}
+
+function addModel(model) {
+    var modelList = document.getElementById('model-list');
+    var newModel = document.createElement('input');
+    var name;
+
+    if (model.name === "line") {
+        lineCount++;
+        name = model.name + lineCount;
+    }
+    else if (model.name === "square") {
+        squareCount++;
+        name = model.name + squareCount;
+    }
+    else if (model.name === 'rectangle') {
+        rectangleCount++;
+        name = model.name + rectangleCount;
+    } 
+    else {
+        polygonCount++;
+        name = model.name + polygonCount;
+    }
+
+    newModel.type = "radio";
+    newModel.name = "model";
+    newModel.id = currIdx;
+    newModel.value = currIdx;
+    newModel.className = "mr-3";
+    newModel.checked = true;
+    newModel.onclick = function() {
+        selectedIdx = newModel.value;
+        console.log(selectedIdx);
+    };
+
+    var modelLabel = document.createElement('label');
+    modelLabel.setAttribute("for", newModel.value);
+    modelLabel.textContent = name;
+    modelLabel.className = "font-semibold";
+
+    modelList.appendChild(newModel);
+    modelList.appendChild(modelLabel);
+    modelList.appendChild(document.createElement('br'));
+    selectedIdx = currIdx;
+    currIdx++;
 }
 
 function drawShapes() {
